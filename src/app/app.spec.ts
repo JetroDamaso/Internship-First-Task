@@ -18,6 +18,6 @@ describe('App', () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('p')?.textContent).toContain('This is where we see our data');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Bible Verse Locket');
   });
 });
