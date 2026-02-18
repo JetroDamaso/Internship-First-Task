@@ -1,25 +1,68 @@
 <main class="main">
-  <div class="coldiv">
-    <form class="form" [formGroup]="bibleForm" (submit)="submitForm($event)">
-      <div class="field">
-        <label for="verse">Verse</label>
-        <input class="input" id="verse" type="text" formControlName="verse" />
-      </div>
-
-      <div class="field">
-        <label for="version">Version</label>
-        <input class="input" id="version" type="text" formControlName="version" />
-      </div>
-
-      <div class="field">
-        <label for="content">Content</label>
-        <textarea class="input" id="content" formControlName="content"></textarea>
-      </div>
-      <button type="submit">Submit</button>
-    </form>
+  <div class="topPart">
+    <p class="text">Test Application</p>
+    <h1 class="text">Bible Verse Locket</h1>
   </div>
-  <div class="coldiv">
-    <p>This is where we see our data</p>
+  <div class="bottomPart">
+    <div class="coldiv">
+      <form class="form" [formGroup]="bibleForm" (submit)="submitForm($event)">
+        <div class="field">
+          <label for="verse">Verse</label>
+          <input
+            class="input"
+            id="verse"
+            type="text"
+            placeholder="Psalm 36:1"
+            formControlName="verse"
+          />
+        </div>
+
+        <div class="field">
+          <label for="version">Version</label>
+          <input
+            class="input"
+            id="version"
+            type="text"
+            formControlName="version"
+            placeholder="NIV"
+          />
+        </div>
+
+        <div class="field">
+          <label for="content">Content</label>
+          <textarea
+            class="input"
+            id="content"
+            formControlName="content"
+            placeholder="Your Verse here..."
+          ></textarea>
+        </div>
+        <button type="submit" class="button-primary-grow">
+          <lucide-angular [img]="Plus" class="my-icon"></lucide-angular>
+          Add
+        </button>
+      </form>
+    </div>
+    <div class="rightdiv">
+      <div class="verse-container">
+        @for (verse of verses; track verse.Id) {
+        <div class="verse-card">
+          <div class="verse-title-block">
+            <p class="verse-version">{{verse.Version}}</p>
+            <p class="verse-title">{{verse.Verse}}</p>
+          </div>
+          <p class="verse-content">{{verse.Content}}</p>
+        </div>
+        }
+      </div>
+
+      <div class="button-group">
+        <button type="button" class="button-primary" (click)="getAllVerses()">
+          <lucide-angular [img]="RotateCcw" class="my-icon"></lucide-angular>
+          Refresh
+        </button>
+      </div>
+    </div>
   </div>
 </main>
 
