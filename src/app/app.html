@@ -45,7 +45,7 @@
     </div>
     <div class="rightdiv">
       <div class="verse-container">
-        @for (verse of verses; track verse.Id) {
+        @for (verse of verses(); track verse.Id) {
         <div class="verse-card">
           <div class="verse-title-block">
             <p class="verse-version">{{verse.Version}}</p>
